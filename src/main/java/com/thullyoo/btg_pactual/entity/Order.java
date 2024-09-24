@@ -15,7 +15,7 @@ public class Order {
     @MongoId
     private Long id;
 
-    @Indexed(name = "client_id")
+    @Indexed(name = "client_id_index")
     private Long clientId;
 
     private List<OrderItem> itens;

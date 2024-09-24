@@ -41,8 +41,12 @@ public class QueueService {
     }
 
     public Page<OrderResponse> findByClientId(Long clientId, PageRequest pageRequest){
+        System.out.println("SALVE PORRA");
         var orders =  orderRepository.findByClientId(clientId, pageRequest);
 
+        if(orders.isEmpty()){
+            throw new RuntimeException("ERRORRRRR");
+        }
         return orders.map(OrderResponse::toOrderResponse);
     }
 
