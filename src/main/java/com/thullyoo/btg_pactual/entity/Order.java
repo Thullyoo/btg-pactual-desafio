@@ -10,7 +10,7 @@ import java.math.BigDecimal;
 import java.util.List;
 
 @Document(collection = "tb_orders")
-public class Ordem {
+public class Order {
 
     @MongoId
     private Long id;
@@ -18,12 +18,12 @@ public class Ordem {
     @Indexed(name = "client_id")
     private Long clientId;
 
-    private List<OrdemItem> itens;
+    private List<OrderItem> itens;
 
     @Field(targetType = FieldType.DECIMAL128)
     private BigDecimal total;
 
-    public Ordem() {
+    public Order() {
     }
 
     public BigDecimal getTotal() {
@@ -50,11 +50,11 @@ public class Ordem {
         this.clientId = clientId;
     }
 
-    public List<OrdemItem> getItens() {
+    public List<OrderItem> getItens() {
         return itens;
     }
 
-    public void setItens(List<OrdemItem> itens) {
+    public void setItens(List<OrderItem> itens) {
         this.itens = itens;
     }
 }
